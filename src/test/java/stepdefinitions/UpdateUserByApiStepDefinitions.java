@@ -6,10 +6,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
+import pages.CLAddUserPage;
 import pojos.User;
 import pojos.UserPojo;
 import utilities.ObjectMapperUtils;
-
+import static stepdefinitions.CreateUserBySeleniumStepDefinitions.*;
 import static base_urls.ContactListBaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -20,14 +21,14 @@ public class UpdateUserByApiStepDefinitions {
     Response response;
 
     @Given("set the url for patch request")
-    public void setTheUrlForPutRequest() {
+    public void setTheUrlForPatchRequest() {
         //https://thinking-tester-contact-list.herokuapp.com/users/me
         spec.pathParams("first", "users", "second", "me");
 
     }
 
     @And("set the expected data for patch request")
-    public void setTheExpectedDataForPutRequest() {
+    public void setTheExpectedDataForPatchRequest() {
         String json = """
                 {
                     "firstName": "Tom",
@@ -36,14 +37,14 @@ public class UpdateUserByApiStepDefinitions {
                     "password": "Tom.123"
                 }""";
         expectedData = ObjectMapperUtils.jsonToJava(json, UserPojo.class);
-        expectedData.setEmail(Faker.instance().internet().emailAddress());
+        expectedData.setEmail(Faker.instance().internet().emailAddress());  // burada email e Fakerden bir email set edildi.
         System.out.println("expectedData = " + expectedData);
 
 
     }
 
     @When("send the patch request and get the response")
-    public void sendThePutRequestAndGetTheResponse() {
+    public void sendThePatchRequestAndGetTheResponse() {
 
         response = given(spec).body(expectedData).patch("{first}/{second}");
         response.prettyPrint();
@@ -51,7 +52,7 @@ public class UpdateUserByApiStepDefinitions {
     }
 
     @Then("do assertion for patch request")
-    public void doAssertionForPutRequest() {
+    public void doAssertionForPatchRequest() {
 
         User actualData = response.as(User.class);
 
@@ -59,6 +60,13 @@ public class UpdateUserByApiStepDefinitions {
         assertEquals(expectedData.getFirstName(), actualData.getFirstName());
         assertEquals(expectedData.getLastName(), actualData.getLastName());
         assertEquals(expectedData.getEmail(), actualData.getEmail());
+
+
+        // Delete icin token almak icin güncellenen email ve password burada Authentication de kullanmak üzere CreateUserBySeleniumStepDefinitions classinda tanimlanan static variablelere atandi
+        email=expectedData.getEmail();
+        password=expectedData.getPassword();
+
+
 
     }
 }

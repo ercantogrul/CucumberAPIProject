@@ -14,4 +14,7 @@ Feature: End To End Test
     Then validate logout button
     And close browser
 
+  # herhangi bir adimda "" icinde bir veri tanimlarsak String bir parametre gönderir
+  # herhangi bir adimda 123 seklinde bir veri tanimlarsak int bir parametre gönderir
+
 
