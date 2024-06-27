@@ -47,5 +47,6 @@ public class UserPojo{
 			",password = '" + password + '\'' + 
 			",email = '" + email + '\'' + 
 			"}";
+
 		}
 }

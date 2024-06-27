@@ -47,10 +47,10 @@ public class ContactStepDefinitions {
         expectedData = ObjectMapperUtils.jsonToJava(json, ContactPojo.class);
         System.out.println("expextedData = " + expectedData);
 
+
         expectedData.setFirstName(Faker.instance().name().firstName());
         expectedData.setLastName(Faker.instance().name().lastName());
         expectedData.setEmail(Faker.instance().internet().emailAddress());
-
 
     }
 
@@ -58,6 +58,7 @@ public class ContactStepDefinitions {
     public void sendThePostRequestAndGetTheResponse() {
         response=  given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
+
     }
 
     @Then("do assertion for add user")
