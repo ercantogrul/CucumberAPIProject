@@ -24,6 +24,7 @@ public class Authentication {
         } else {//User oluşturulmadıysa clarusway kullanıcısı ile token alınacak
             payload.put("email", "clarusway_96@hotmail.com");
             payload.put("password", "Clarusway.1234");
+
         }
 
         Response response = given()

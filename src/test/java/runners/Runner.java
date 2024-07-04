@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
         dryRun = false  // dryRun = false test calisir
         //dryRun = true // yapildiginda test calismaz sadece eksik step definitions methodlari tespit eder
 
+
 )
 public class Runner {
 

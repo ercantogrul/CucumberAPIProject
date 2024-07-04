@@ -11,6 +11,7 @@ public class CLContactsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
     @FindBy(id="logout")
     public WebElement logout;
 

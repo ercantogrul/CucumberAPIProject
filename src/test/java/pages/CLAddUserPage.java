@@ -14,6 +14,7 @@ public class CLAddUserPage {
     @FindBy(id="firstName")
     public WebElement firstName;
 
+
     @FindBy(id="lastName")
     public WebElement lastName;
 
