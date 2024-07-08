@@ -14,12 +14,14 @@ public class DeleteUserByApiStepDefinitions {
     public void setTheUrlForDeleteRequest() {
 
         spec.pathParams("first","users","second","me");
+
     }
 
     @When("send the delete request and get the response")
     public void sendTheDeleteRequestAndGetTheResponse() {
         response = given(spec).delete("{first}/{second}");
         response.prettyPrint();
+
     }
 
     @Then("do assertion for delete request")

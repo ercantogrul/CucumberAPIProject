@@ -47,7 +47,6 @@ public class ContactStepDefinitions {
         expectedData = ObjectMapperUtils.jsonToJava(json, ContactPojo.class);
         System.out.println("expextedData = " + expectedData);
 
-
         expectedData.setFirstName(Faker.instance().name().firstName());
         expectedData.setLastName(Faker.instance().name().lastName());
         expectedData.setEmail(Faker.instance().internet().emailAddress());
@@ -81,6 +80,7 @@ public class ContactStepDefinitions {
         assertEquals(expectedData.getEmail(), actualData.getEmail());
 
         contactId = response.jsonPath().getString("_id");
+
     }
 
 
@@ -100,6 +100,7 @@ public class ContactStepDefinitions {
     public void sendTheGetRequestAndGetTheResponseForGetContact() {
        response = given(spec).get("{first}/{second}");
        response.prettyPrint();
+
     }
 
     @Then("do assertion for get contact")
@@ -120,6 +121,7 @@ public class ContactStepDefinitions {
         assertEquals(expectedData.getStreet1(), actualData.getStreet1());
         assertEquals(expectedData.getStreet2(), actualData.getStreet2());
         assertEquals(expectedData.getEmail(), actualData.getEmail());
+
     }
 
     @Given("set the url for update contact")
@@ -149,13 +151,13 @@ public class ContactStepDefinitions {
         expectedData = ObjectMapperUtils.jsonToJava(json, ContactPojo.class);
         System.out.println("expextedData = " + expectedData);
 
-
     }
 
     @When("send the put request and get the response for update contact")
     public void sendThePutRequestAndGetTheResponseForUpdateContact() {
        response = given(spec).body(expectedData).put("{first}/{second}");
        response.prettyPrint();
+
     }
 
     @Then("do assertion for update contact")

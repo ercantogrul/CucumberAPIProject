@@ -16,7 +16,6 @@ public class CreateUserBySeleniumStepDefinitions {
     public static String email; // Athentication icin kullanilacak email
     public static String password; // Athentication icin kullanilacak email
 
-
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
         Driver.getDriver().get(url);
@@ -43,6 +42,7 @@ public class CreateUserBySeleniumStepDefinitions {
         clAddUserPage.email.sendKeys(email);
     }
 
+
     @When("user enters password")
     public void user_enters_password() {
        // password = Faker.instance().internet().password(); // Athentication icin kullanilacak password' burada atayacak veya hazir atanir
@@ -64,8 +64,6 @@ public class CreateUserBySeleniumStepDefinitions {
     public void closeBrowser() {
         Driver.closeDriver();
     }
-
-
 
 
 

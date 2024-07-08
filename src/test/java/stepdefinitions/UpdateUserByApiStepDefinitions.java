@@ -40,7 +40,6 @@ public class UpdateUserByApiStepDefinitions {
         expectedData.setEmail(Faker.instance().internet().emailAddress());  // burada email e Fakerden bir email set edildi.
         System.out.println("expectedData = " + expectedData);
 
-
     }
 
     @When("send the patch request and get the response")
@@ -48,7 +47,6 @@ public class UpdateUserByApiStepDefinitions {
 
         response = given(spec).body(expectedData).patch("{first}/{second}");
         response.prettyPrint();
-
     }
 
     @Then("do assertion for patch request")
@@ -60,7 +58,6 @@ public class UpdateUserByApiStepDefinitions {
         assertEquals(expectedData.getFirstName(), actualData.getFirstName());
         assertEquals(expectedData.getLastName(), actualData.getLastName());
         assertEquals(expectedData.getEmail(), actualData.getEmail());
-
 
         // Delete icin token almak icin güncellenen email ve password burada Authentication de kullanmak üzere CreateUserBySeleniumStepDefinitions classinda tanimlanan static variablelere atandi
         email=expectedData.getEmail();
