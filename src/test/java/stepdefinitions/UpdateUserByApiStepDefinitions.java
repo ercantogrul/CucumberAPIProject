@@ -36,6 +36,7 @@ public class UpdateUserByApiStepDefinitions {
                     "email": "test2@fake.com",
                     "password": "Tom.123"
                 }""";
+
         expectedData = ObjectMapperUtils.jsonToJava(json, UserPojo.class);
         expectedData.setEmail(Faker.instance().internet().emailAddress());  // burada email e Fakerden bir email set edildi.
         System.out.println("expectedData = " + expectedData);

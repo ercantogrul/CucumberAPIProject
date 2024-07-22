@@ -163,6 +163,7 @@ public class ContactStepDefinitions {
     @Then("do assertion for update contact")
     public void doAssertionForUpdateContact() {
 
+
         ContactPojo actualData = response.as(ContactPojo.class);
         System.out.println("actualData = " + actualData);
 

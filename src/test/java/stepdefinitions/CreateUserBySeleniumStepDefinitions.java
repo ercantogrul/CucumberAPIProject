@@ -42,9 +42,9 @@ public class CreateUserBySeleniumStepDefinitions {
         clAddUserPage.email.sendKeys(email);
     }
 
-
     @When("user enters password")
     public void user_enters_password() {
+
        // password = Faker.instance().internet().password(); // Athentication icin kullanilacak password' burada atayacak veya hazir atanir
         password = "Password.123";
         clAddUserPage.password.sendKeys(password);
