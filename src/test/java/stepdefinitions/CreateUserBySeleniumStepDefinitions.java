@@ -21,6 +21,7 @@ public class CreateUserBySeleniumStepDefinitions {
         Driver.getDriver().get(url);
     }
 
+
     @When("user clicks on sing up button")
     public void user_clicks_on_sing_up_button() {
         clHomePage.signup.click();
@@ -30,6 +31,7 @@ public class CreateUserBySeleniumStepDefinitions {
     public void user_enters_firstname() {
         clAddUserPage.firstName.sendKeys("John");
     }
+
 
     @When("user enters lastname")
     public void user_enters_lastname() {

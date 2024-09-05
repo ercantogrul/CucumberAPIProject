@@ -32,6 +32,7 @@ public class GetUserByApiStepDefinitions {
                   "email": "test@fake.com"
                 }
                 """;
+
         expectedData = ObjectMapperUtils.jsonToJava(json, User.class);
         expectedData.setEmail(email);//Selenium ile Java faker'ın oluşturduğu email'i buraya assign ediyoruz.
         System.out.println("expectedData = " + expectedData);
@@ -42,6 +43,7 @@ public class GetUserByApiStepDefinitions {
     public void send_the_get_request_and_get_the_response() {
         response = given(spec).get("{first}/{second}");
         response.prettyPrint();
+
     }
 
     @Then("do assertion for get request")

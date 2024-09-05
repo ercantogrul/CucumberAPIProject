@@ -40,7 +40,6 @@ public class UpdateUserByApiStepDefinitions {
         expectedData = ObjectMapperUtils.jsonToJava(json, UserPojo.class);
         expectedData.setEmail(Faker.instance().internet().emailAddress());  // burada email e Fakerden bir email set edildi.
         System.out.println("expectedData = " + expectedData);
-
     }
 
     @When("send the patch request and get the response")
