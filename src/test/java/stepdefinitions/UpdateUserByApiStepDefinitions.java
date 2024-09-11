@@ -25,6 +25,7 @@ public class UpdateUserByApiStepDefinitions {
         //https://thinking-tester-contact-list.herokuapp.com/users/me
         spec.pathParams("first", "users", "second", "me");
 
+
     }
 
     @And("set the expected data for patch request")
@@ -58,6 +59,7 @@ public class UpdateUserByApiStepDefinitions {
         assertEquals(expectedData.getFirstName(), actualData.getFirstName());
         assertEquals(expectedData.getLastName(), actualData.getLastName());
         assertEquals(expectedData.getEmail(), actualData.getEmail());
+
 
         // Delete icin token almak icin güncellenen email ve password burada Authentication de kullanmak üzere CreateUserBySeleniumStepDefinitions classinda tanimlanan static variablelere atandi
         email=expectedData.getEmail();

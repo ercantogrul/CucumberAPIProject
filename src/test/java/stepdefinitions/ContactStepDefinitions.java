@@ -148,9 +148,9 @@ public class ContactStepDefinitions {
                     "country": "Canada"
                 }""";
 
-
         expectedData = ObjectMapperUtils.jsonToJava(json, ContactPojo.class);
         System.out.println("expextedData = " + expectedData);
+
 
     }
 
@@ -158,6 +158,7 @@ public class ContactStepDefinitions {
     public void sendThePutRequestAndGetTheResponseForUpdateContact() {
        response = given(spec).body(expectedData).put("{first}/{second}");
        response.prettyPrint();
+
 
     }
 

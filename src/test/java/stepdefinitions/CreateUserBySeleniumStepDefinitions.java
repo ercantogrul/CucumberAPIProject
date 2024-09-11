@@ -21,7 +21,6 @@ public class CreateUserBySeleniumStepDefinitions {
         Driver.getDriver().get(url);
     }
 
-
     @When("user clicks on sing up button")
     public void user_clicks_on_sing_up_button() {
         clHomePage.signup.click();
@@ -32,7 +31,6 @@ public class CreateUserBySeleniumStepDefinitions {
         clAddUserPage.firstName.sendKeys("John");
     }
 
-
     @When("user enters lastname")
     public void user_enters_lastname() {
         clAddUserPage.lastName.sendKeys("Doe");
@@ -42,6 +40,7 @@ public class CreateUserBySeleniumStepDefinitions {
     public void user_enters_email() {
         email= Faker.instance().internet().emailAddress(); // Athentication icin kullanilacak email' burada atayacak
         clAddUserPage.email.sendKeys(email);
+
     }
 
     @When("user enters password")

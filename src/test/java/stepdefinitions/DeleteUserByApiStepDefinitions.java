@@ -31,5 +31,6 @@ public class DeleteUserByApiStepDefinitions {
         assertEquals(response.statusCode(), 200);  // status code should be 200
         assert response.asString().isEmpty();  // body should be empty
 
+
     }
 }
